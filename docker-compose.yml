@@ -1,0 +1,42 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13.2
+    container_name: postgres
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: postgres
+    volumes:
+      - ./database/postgres:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+    nest:
+      image: node:18.13.0
+      container_name: nest
+      restart: always
+      expose:
+        - 5000
+      ports:
+        - 5000:5000
+      volumes:
+        - ./api:/usr/src/app
+      depends_on:
+        - postgres
+      working_dir: /usr/src/app
+      command: npm run start
+
+    react:
+      image: node:18.13.0
+      container_name: react
+      restart: always
+      expose:
+        - 3000
+      ports:
+        - 3000:3000
+      volumes:
+        - ./client:/usr/src/app
+      working_dir: /usr/src/app
+      command: npm start
