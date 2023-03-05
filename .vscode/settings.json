@@ -12,4 +12,8 @@
   "files.trimTrailingWhitespace": true,
   "eslint.validate": [ "javascript", "javascriptreact", "html", "typescriptreact" ],
   "eslint.nodePath": "/home/thurford/PERN_TS_Template/app/node_modules",
+  "eslint.workingDirectories": [
+    "./app",
+    "./api"
+  ]
 }

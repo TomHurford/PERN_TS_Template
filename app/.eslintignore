@@ -1,2 +1,5 @@
 jest.*
 react-app-env.d.ts
+reportWebVitals.ts
+
+*.cy*

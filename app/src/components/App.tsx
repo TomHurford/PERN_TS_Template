@@ -2,6 +2,7 @@ import React from 'react'
 import logo from '../assets/logo.svg'
 import '../styles/App.css'
 
+/* eslint-disable-next-line */
 function App () {
   return (
       <div className="App">
