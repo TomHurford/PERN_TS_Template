@@ -22,7 +22,13 @@ services:
     ports:
       - 5000:5000
     volumes:
-      - ./api:/usr/src/app
+      - ./api/node_modules:/usr/src/app/node_modules
+      - ./api/prisma:/usr/src/app/prisma
+      - ./api/src:/usr/src/app/src
+      - ./api/package.json:/usr/src/app/package.json
+      - ./api/tsconfig.json:/usr/src/app/tsconfig.json
+      - ./api/.docker.env:/usr/src/app/.env
+      - ./api/package-lock.json:/usr/src/app/package-lock.json
     depends_on:
       - postgres
     working_dir: /usr/src/app
